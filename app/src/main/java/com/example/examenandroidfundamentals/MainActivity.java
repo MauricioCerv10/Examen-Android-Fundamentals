@@ -4,18 +4,29 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Button btnIr;
     ImageView mBanderaP;
     final int TEXT_REQUEST = 1;
     final String LOG_TAG = "MIESTADO";
+    ImageView mBanderaLand;
+    Button mSpainB;
+    Button mEngB;
+    Button mFrB;
+    TextView mDesc;
+    int index = 0;
+    SharedPreferences mSharedPref;
+    final String prefFile = "com.example.exaneabdroidfundamentals";
+    final String RESOURCE_KEY = "resourceIndex";
     Imagen[] images = {
             new Imagen() {
                 @Override
@@ -41,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         int orientation = getResources().getConfiguration().orientation;
+        mSharedPref = getSharedPreferences(prefFile,MODE_PRIVATE);
         if(orientation ==  Configuration.ORIENTATION_PORTRAIT){
 
             btnIr = findViewById(R.id.button);
@@ -54,9 +66,42 @@ public class MainActivity extends AppCompatActivity {
 
 
             //Restore preferences
+            int prefIndex = mSharedPref.getInt(RESOURCE_KEY,0);
+            mBanderaP.setImageResource(images[prefIndex].returnResourceId());
 
         }else{
-            //mLogo = findViewById(R.id.imageView2);
+            mBanderaLand = findViewById(R.id.imageView2);
+            mSpainB = findViewById(R.id.button2);
+            mEngB = findViewById(R.id.button4);
+            mFrB = findViewById(R.id.button3);
+            mDesc = findViewById(R.id.textView);
+            mSpainB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    index = 0;
+                    mDesc.setText(R.string.descCountry);
+                    mBanderaLand.setImageResource(images[index].returnResourceId());
+                }
+            });
+            mEngB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    index = 1;
+                    mDesc.setText(R.string.descCountryEng);
+                    mBanderaLand.setImageResource(images[index].returnResourceId());
+                }
+            });
+            mFrB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    index = 2;
+                    mDesc.setText(R.string.descCountryFr);
+                    mBanderaLand.setImageResource(images[index].returnResourceId());
+
+                }
+            });
+            int prefIndex = mSharedPref.getInt(RESOURCE_KEY,0);
+            mBanderaLand.setImageResource(images[prefIndex].returnResourceId());
         }
     }
     public void launchSecondActivity(){
@@ -75,5 +120,13 @@ public class MainActivity extends AppCompatActivity {
                 mBanderaP.setImageResource(images[Integer.parseInt(reply)].returnResourceId());
             }
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = mSharedPref.edit();
+        editor.putInt(RESOURCE_KEY,index);
+        editor.apply();
     }
 }
