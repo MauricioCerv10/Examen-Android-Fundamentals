@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExamenAndroidFundamentals</string>
+    <string name="espa_a">Espagne</string>
+    <string name="francia">France</string>
+    <string name="inglaterra">Angleterre</string>
+    <string name="ir">Aller</string>
+    <string name="descCountry">La langue parlée est l\'espagnol</string>
+</resources>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ExamenAndroidFundamentals</string>
+    <string name="espa_a">España</string>
+    <string name="francia">Francia</string>
+    <string name="inglaterra">Inglaterra</string>
+    <string name="ir">Ir</string>
+    <string name="descCountry">El idioma que se habla es Español</string>
 </resources>
