@@ -8,4 +8,5 @@
     <string name="descCountry">The language spoken is Spanish</string>
     <string name="descCountryEng">The language spoken is English</string>
     <string name="descCountryFr">The language spoken is French</string>
+    <string name="atras">Back</string>
 </resources>

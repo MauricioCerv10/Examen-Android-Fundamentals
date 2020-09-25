@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             //Restore preferences
-            int prefIndex = mSharedPref.getInt(RESOURCE_KEY,0);
-            mBanderaP.setImageResource(images[prefIndex].returnResourceId());
+            index = mSharedPref.getInt(RESOURCE_KEY,0);
+            mBanderaP.setImageResource(images[index].returnResourceId());
 
         }else{
             mBanderaLand = findViewById(R.id.imageView2);
@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-            int prefIndex = mSharedPref.getInt(RESOURCE_KEY,0);
-            mBanderaLand.setImageResource(images[prefIndex].returnResourceId());
+            index = mSharedPref.getInt(RESOURCE_KEY,0);
+            mBanderaLand.setImageResource(images[index].returnResourceId());
         }
     }
     public void launchSecondActivity(){
@@ -117,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 String reply = data.getStringExtra(MainActivity2.EXTRA_REPLY);
                 Log.d(LOG_TAG,reply);
-                mBanderaP.setImageResource(images[Integer.parseInt(reply)].returnResourceId());
+                index = Integer.parseInt(reply);
+                mBanderaP.setImageResource(images[index].returnResourceId());
             }
         }
     }

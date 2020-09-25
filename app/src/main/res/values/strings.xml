@@ -7,4 +7,5 @@
     <string name="descCountry">El idioma que se habla es Español</string>
     <string name="descCountryEng">El idioma que se habla es Ingles</string>
     <string name="descCountryFr">El idioma que se habla es Frances</string>
+    <string name="atras">Regresar</string>
 </resources>
