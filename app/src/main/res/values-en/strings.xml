@@ -6,4 +6,6 @@
     <string name="inglaterra">United Kingdom</string>
     <string name="ir">Go</string>
     <string name="descCountry">The language spoken is Spanish</string>
+    <string name="descCountryEng">The language spoken is English</string>
+    <string name="descCountryFr">The language spoken is French</string>
 </resources>

@@ -5,4 +5,6 @@
     <string name="inglaterra">Inglaterra</string>
     <string name="ir">Ir</string>
     <string name="descCountry">El idioma que se habla es Español</string>
+    <string name="descCountryEng">El idioma que se habla es Ingles</string>
+    <string name="descCountryFr">El idioma que se habla es Frances</string>
 </resources>
